@@ -6,7 +6,7 @@ plugins {
     id("org.springframework.boot") version "3.1.0"
     id("io.spring.dependency-management") version "1.1.0"
 
-    id("io.gitlab.arturbosch.detekt") version "1.23.0"
+    id("io.gitlab.arturbosch.detekt") version "1.20.0-RC2"
 
     id("org.flywaydb.flyway") version "9.19.0"
 }
@@ -70,6 +70,5 @@ tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
     reports {
         html.required.set(true)
         txt.required.set(true)
-        md.required.set(true)
     }
 }
