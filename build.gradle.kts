@@ -38,10 +38,12 @@ dependencies {
 
     testImplementation("org.assertj:assertj-core:3.24.2")
     testImplementation(platform("org.junit:junit-bom:5.9.2"))
-    testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation("org.junit.platform:junit-platform-suite")
 
-    testImplementation("io.cucumber:cucumber-java:7.12.0")
-    testImplementation("io.cucumber:cucumber-junit:7.12.0")
+    testImplementation("io.cucumber:cucumber-junit-platform-engine:7.13.0")
+    testImplementation("io.cucumber:cucumber-spring:7.13.0")
+    testImplementation("io.cucumber:cucumber-java:7.13.0")
 
     implementation(platform("org.testcontainers:testcontainers-bom:1.17.6"))
     testImplementation("org.testcontainers:postgresql:1.17.6")
@@ -69,6 +71,5 @@ tasks.test {
 tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
     reports {
         html.required.set(true)
-        txt.required.set(true)
     }
 }
