@@ -51,6 +51,8 @@ dependencies {
     testImplementation("org.testcontainers:junit-jupiter:1.17.6")
 
     testImplementation("io.mockk:mockk:1.13.5")
+
+    testImplementation("io.github.atomfinger:atomfinger-touuid:1.0.1")
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
