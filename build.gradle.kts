@@ -9,6 +9,8 @@ plugins {
     id("io.gitlab.arturbosch.detekt") version "1.20.0-RC2"
 
     id("org.flywaydb.flyway") version "9.19.0"
+
+    id("com.netflix.dgs.codegen") version "5.12.4"
 }
 
 group = "local.mathewdj.paper.scissors.rock"
@@ -31,6 +33,7 @@ dependencies {
 
     implementation(platform("com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:7.2.0"))
     implementation("com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter")
+    implementation("com.graphql-java:graphql-java-extended-scalars:20.2")
 
     runtimeOnly("org.postgresql:postgresql")
 

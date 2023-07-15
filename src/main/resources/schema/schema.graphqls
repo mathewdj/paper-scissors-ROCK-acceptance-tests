@@ -1,0 +1,33 @@
+scalar UUID
+
+type Mutation {
+    playGame(playGameInput: PlayGameInput!): PlayGameResponse
+}
+
+input PlayGameInput {
+    gameId: UUID!
+    playerId: UUID!
+    attack: Attack!
+}
+
+union PlayGameResponse = GameWin | WaitingOnOtherPlayers
+
+type GameWin {
+    playerId: UUID!
+}
+
+type WaitingOnOtherPlayers {
+    message: String
+}
+
+type Player {
+    id: String!
+    name: String!
+}
+
+enum Attack {
+    Scissors,
+    Paper,
+    Rock
+}
+
