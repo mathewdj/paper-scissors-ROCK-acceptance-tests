@@ -1,6 +1,8 @@
 package local.mathewdj.rock.domain
 
-import local.mathewdj.rock.domain.Attack.*
+import local.mathewdj.rock.domain.Attack.Paper
+import local.mathewdj.rock.domain.Attack.Scissors
+import local.mathewdj.rock.domain.Attack.Rock
 
 object ScissorsPaperRockRuleEngine {
     fun play(left: Attack, right: Attack): Result {
