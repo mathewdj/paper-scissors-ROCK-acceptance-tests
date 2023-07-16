@@ -17,9 +17,9 @@ fun createAsyncGameEntity(
         attack: Attack = Attack.Rock,
         createdAtUtc: LocalDateTime = timestamp
 ) = AsyncGameEntity(
-        id,
         gameId,
         playerId,
         attack,
-        createdAtUtc
+        createdAtUtc,
+        id
 )

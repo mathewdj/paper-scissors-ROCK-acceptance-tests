@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository
 import java.util.*
 
 interface AsyncGameRepository : CrudRepository<AsyncGameEntity, UUID> {
-    fun findByGameId(gameId: UUID)
+    fun findByGameId(gameId: UUID): List<AsyncGameEntity>
 }

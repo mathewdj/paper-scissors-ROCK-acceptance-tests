@@ -15,9 +15,6 @@ import java.util.*
 
 @Entity(name = "async_game")
 data class AsyncGameEntity(
-        @Id
-        @GeneratedValue(strategy = GenerationType.UUID)
-        var id: UUID? = null,
 
         @Column(columnDefinition = "VARCHAR(36)")
         @JdbcTypeCode(SqlTypes.VARCHAR)
@@ -32,5 +29,9 @@ data class AsyncGameEntity(
         val playerAttack: Attack,
 
         @Column(nullable = false)
-        var createdAtUtc: LocalDateTime = LocalDateTime.now()
+        var createdAtUtc: LocalDateTime = LocalDateTime.now(),
+
+        @Id
+        @GeneratedValue(strategy = GenerationType.UUID)
+        var id: UUID? = null,
 )

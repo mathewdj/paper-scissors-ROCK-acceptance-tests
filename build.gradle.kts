@@ -35,7 +35,7 @@ dependencies {
 
     implementation(platform("com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:7.2.0"))
     implementation("com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter")
-    implementation("com.netflix.graphql.dgs:graphql-java-extended-scalars")
+    implementation("com.netflix.graphql.dgs:graphql-dgs-extended-scalars")
 
     runtimeOnly("org.postgresql:postgresql")
 
