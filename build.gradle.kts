@@ -1,3 +1,5 @@
+import com.netflix.graphql.dgs.codegen.gradle.GenerateJavaTask
+
 plugins {
     kotlin("jvm") version "1.8.21"
 
@@ -33,7 +35,7 @@ dependencies {
 
     implementation(platform("com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:7.2.0"))
     implementation("com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter")
-    implementation("com.graphql-java:graphql-java-extended-scalars:20.2")
+    implementation("com.netflix.graphql.dgs:graphql-java-extended-scalars")
 
     runtimeOnly("org.postgresql:postgresql")
 
@@ -77,4 +79,10 @@ tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
     reports {
         html.required.set(true)
     }
+}
+
+tasks.withType<GenerateJavaTask> {
+    typeMapping = mutableMapOf(
+        "UUID" to "java.util.UUID"
+    )
 }

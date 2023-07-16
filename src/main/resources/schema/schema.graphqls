@@ -1,7 +1,7 @@
-scalar UUID
+scalar UUID @specifiedBy(url: "https://tools.ietf.org/html/rfc4122")
 
 type Mutation {
-    playGame(playGameInput: PlayGameInput!): PlayGameResponse
+    playTurn(playGameInput: PlayGameInput!): PlayTurnResponse
 }
 
 input PlayGameInput {
@@ -10,7 +10,7 @@ input PlayGameInput {
     attack: Attack!
 }
 
-union PlayGameResponse = GameWin | WaitingOnOtherPlayers
+union PlayTurnResponse = GameWin | WaitingOnOtherPlayers
 
 type GameWin {
     playerId: UUID!
