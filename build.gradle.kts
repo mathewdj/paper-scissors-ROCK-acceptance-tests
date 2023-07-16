@@ -88,6 +88,7 @@ tasks.withType<GenerateJavaTask> {
     typeMapping = mutableMapOf(
         "UUID" to "java.util.UUID"
     )
+    generateClient = true
 }
 
 jib {
