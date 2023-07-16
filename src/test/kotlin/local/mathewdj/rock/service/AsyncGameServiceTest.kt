@@ -37,7 +37,7 @@ class AsyncGameServiceTest {
     }
 
     @Nested
-    inner class HappyCaseTest {
+    inner class NewGameTest {
         @Test
         fun `should persist first round of a game`() {
             val response = asynGameService.playTurn(gameIdStub, playerIdStub, Attack.Rock)

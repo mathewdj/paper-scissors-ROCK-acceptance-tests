@@ -10,13 +10,17 @@ input PlayGameInput {
     attack: Attack!
 }
 
-union PlayTurnResponse = GameWin | GameLose | WaitingOnOtherPlayers
+union PlayTurnResponse = GameWin | GameLoss | GameTie | WaitingOnOtherPlayers
 
 type GameWin {
     playerId: UUID
 }
 
-type GameLose {
+type GameLoss {
+    playerId: UUID
+}
+
+type GameTie {
     playerId: UUID
 }
 
