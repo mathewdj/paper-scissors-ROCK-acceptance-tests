@@ -13,6 +13,8 @@ plugins {
     id("org.flywaydb.flyway") version "9.19.0"
 
     id("com.netflix.dgs.codegen") version "5.12.4"
+
+    id("com.google.cloud.tools.jib") version "3.1.4"
 }
 
 group = "local.mathewdj.paper.scissors.rock"
@@ -85,4 +87,16 @@ tasks.withType<GenerateJavaTask> {
     typeMapping = mutableMapOf(
         "UUID" to "java.util.UUID"
     )
+}
+
+jib {
+    from {
+        image = "arm64v8/eclipse-temurin:17-focal"
+    }
+    to {
+        image = "paperscissorsrock:$version"
+    }
+    container {
+        ports = listOf("8080")
+    }
 }
