@@ -3,8 +3,6 @@ Feature: Players can take turns playing paper scissors rock.
 
   @under-development
   Scenario: Rock beats Scissors
-    Given player Blue
-    And player Red
-    When Blue plays Scissors
-    And Red plays Rock
+    Given player Blue plays Scissors
+    When player Red plays Rock
     Then Red wins
