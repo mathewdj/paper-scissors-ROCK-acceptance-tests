@@ -17,4 +17,6 @@ Example BDD feature [src/test/resources/features/async-rock-paper-scissors.featu
 Where steps are defined: [src/test/kotlin/local/mathewdj/rock/acceptance/AsyncGameStepDefinitions.kt](src/test/kotlin/local/mathewdj/rock/acceptance/AsyncGameStepDefinitions.kt)
 
 Test container boot strapping: [src/test/kotlin/local/mathewdj/rock/acceptance/Containers.kt](src/test/kotlin/local/mathewdj/rock/acceptance/Containers.kt).
-
+⚠️There is some complex docker networking happening here. As the artefact under test is a docker container and the DB
+is also a container they must communicate via docker network. I use the network alias of postgres and the docker network
+port of docker to communicate between artefact and DB.
