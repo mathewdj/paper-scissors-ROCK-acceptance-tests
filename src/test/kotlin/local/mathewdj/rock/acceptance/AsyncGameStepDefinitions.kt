@@ -8,6 +8,7 @@ import io.github.atomfinger.touuid.toUuid
 import java.util.UUID
 import local.mathewdj.rock.domain.Attack
 import local.mathewdj.rock.graphql.GraphqlUtil
+import org.assertj.core.api.Assertions.assertThat
 import org.testcontainers.containers.GenericContainer
 
 @CucumberContextConfiguration
@@ -27,19 +28,24 @@ class AsyncGameStepDefinitions {
         paperScissorsRockContainer.start()
     }
 
+    private var turnResult: MutableMap<UUID, String> = mutableMapOf()
     @When("player {player} plays {attack}")
     fun `player uses attack`(player: Player, attack: Attack) {
-        GraphqlUtil().playTurn(
+        val playerId = player.name.hashCode().toUuid()
+
+        turnResult[playerId] = GraphqlUtil().playTurn(
             paperScissorsRockContainer.firstMappedPort,
             gameIdStub,
-            player.name.hashCode().toUuid(),
+                playerId,
             com.netflix.dgs.codegen.generated.types.Attack.valueOf(attack.name)
         )
     }
 
     @Then("{player} wins")
     fun `{player} wins`(player: Player) {
-        TODO("$player")
+        val playerId = player.name.hashCode().toUuid()
+
+        assertThat(turnResult[playerId]).isEqualTo("GameWin")
     }
 
 }

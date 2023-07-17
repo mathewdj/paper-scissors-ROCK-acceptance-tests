@@ -36,7 +36,7 @@ class GraphqlUtil {
 
         val query = graphQLQueryRequest.serialize()
 
-        return client.executeQuery(query).extractValue(".")
+        return client.executeQuery(query).extractValue<String>("data.playTurn.__typename")
     }
 
     private fun customGraphQLClient(port: Int): CustomGraphQLClient {
