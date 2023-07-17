@@ -30,7 +30,7 @@ class AsyncGameStepDefinitions {
 
     private var turnResult: MutableMap<UUID, String> = mutableMapOf()
     @When("player {player} plays {attack}")
-    fun `player uses attack`(player: Player, attack: Attack) {
+    fun `player plays attack`(player: Player, attack: Attack) {
         val playerId = player.name.hashCode().toUuid()
 
         turnResult[playerId] = GraphqlUtil().playTurn(
@@ -42,7 +42,7 @@ class AsyncGameStepDefinitions {
     }
 
     @Then("{player} wins")
-    fun `{player} wins`(player: Player) {
+    fun `player wins`(player: Player) {
         val playerId = player.name.hashCode().toUuid()
 
         assertThat(turnResult[playerId]).isEqualTo("GameWin")

@@ -45,7 +45,12 @@ class GraphqlUtil {
             val httpHeaders = HttpHeaders()
             headers.forEach { httpHeaders.addAll(it.key, it.value) }
 
-            val exchange = restTemplate.exchange(url, HttpMethod.POST, HttpEntity(body, httpHeaders), String::class.java)
+            val exchange = restTemplate.exchange(
+                    url,
+                    HttpMethod.POST,
+                    HttpEntity(body, httpHeaders),
+                    String::class.java
+            )
 
             HttpResponse(exchange.statusCodeValue, exchange.body)
         }
