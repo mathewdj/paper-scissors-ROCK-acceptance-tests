@@ -76,6 +76,8 @@ tasks.test {
     testLogging {
         events("SKIPPED", "FAILED")
     }
+    // Ensure container is built before running tests that depend on that container
+    dependsOn(":jibDockerBuild")
 }
 
 tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {

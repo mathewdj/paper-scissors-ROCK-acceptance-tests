@@ -4,9 +4,10 @@ Demo three different types of acceptance tests using Paper, Scissors, ROCK!
 ## Requirements
 - JDK 17+ (due to Spring Boot 3 + DGS requirement)
 - Gradle 8+ (should be covered by gradle wrapper)
+- Docker
 
 ## Quick start
-1. Build the docker container: `./gradlew jibDockerBuild`
+1. Build the artefact under test as a docker container: `./gradlew jibDockerBuild`
 2. Run the acceptance tests `./gradlew test`
 3. Open the Cucumber test HTML report `open build/reports/tests/cucumber.html`. Example Cucumber HTML report:
 ![img.png](readme/acceptanceTestCucumberHtmlReport.png)
