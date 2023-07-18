@@ -35,3 +35,15 @@ until the `@under-development` tag has been removed.
 Example: [src/test/kotlin/local/mathewdj/rock/acceptance/AcceptanceTest.kt](src/test/kotlin/local/mathewdj/rock/acceptance/AcceptanceTest.kt)
 
 How the `@under-development` tag was configured: [src/test/kotlin/local/mathewdj/rock/acceptance/AcceptanceTest.kt](src/test/kotlin/local/mathewdj/rock/acceptance/AcceptanceTest.kt).
+
+## Evolved Integration Test - Acceptance Test
+The evolved integration test is an incremental step from integration test to acceptance test. It is simpler than 
+running a container based acceptance test because you don't need to worry about complex docker networking. Ideally
+this acceptance should bring up some external services in a docker container. You can use testcontainers to start up 
+supporting containers services and Spring boot to setup web tier. Scope of the test is larger than a unit test as we 
+want to cover from external endpoint to the data layer and back out again.
+
+Example [src/test/kotlin/local/mathewdj/rock/acceptance/EvolvedIntegrationTestAcceptanceTest.kt](src/test/kotlin/local/mathewdj/rock/acceptance/EvolvedIntegrationTestAcceptanceTest.kt)
+
+🎉 Bonus tip: The example above shows an example of how you can use JUnit in a way to nest tests for those that are 
+allergic to Cucumber but still like expressing tests in BDD style.
