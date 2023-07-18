@@ -8,7 +8,8 @@ Demo three different types of acceptance tests using Paper, Scissors, ROCK!
 ## Quick start
 1. Build the docker container: `./gradlew jibDockerBuild`
 2. Run the acceptance tests `./gradlew test`
-3. Open the Cucumber test report `open build/reports/tests/cucumber.html`
+3. Open the Cucumber test HTML report `open build/reports/tests/cucumber.html`. Example Cucumber HTML report:
+![img.png](readme/acceptanceTestCucumberHtmlReport.png)
 
 ## Container Based - Acceptance Test
 What is the artefact you are deploying? A binary or package. Or are you deploying to container Kubernetes? 
