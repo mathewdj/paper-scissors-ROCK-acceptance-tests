@@ -95,7 +95,13 @@ tasks.withType<GenerateJavaTask> {
 
 jib {
     from {
-        image = "arm64v8/eclipse-temurin:17-focal"
+        // Tip: Use Apple Silicon built image to make tests fast!
+        val imageName = if (System.getProperty("os.arch").lowercase().contains("aarch64")) {
+            "arm64v8/eclipse-temurin:17-focal"
+        } else {
+            "eclipse-temurin:17-focal"
+        }
+        image = imageName
     }
     to {
         image = "paperscissorsrock:$version"
